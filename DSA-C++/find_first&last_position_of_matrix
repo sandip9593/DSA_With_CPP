@@ -1,0 +1,13 @@
+class Solution {
+public:
+    vector<int> searchRange(vector<int>& nums, int target) {
+        int firstpos = lower_bound(nums.begin(),nums.end(),target)-nums.begin();
+        int lastpos = upper_bound(nums.begin(),nums.end(),target)-nums.begin() - 1;
+        if(firstpos == nums.size() || nums[firstpos] != target)
+        {
+            return {-1,-1};
+        }
+        return {firstpos,lastpos}; 
+        
+    }
+};
