@@ -1,0 +1,19 @@
+class Solution {
+public:
+    int findDuplicate(vector<int>& nums) {
+        int slowptr=nums[0];
+        int fastptr=nums[0];
+        do{
+            slowptr=nums[slowptr];
+            fastptr=nums[nums[fastptr]];
+        }while(fastptr!=slowptr);
+
+        slowptr=nums[0];
+        while(slowptr!=fastptr){
+            fastptr=nums[fastptr];
+            slowptr=nums[slowptr];
+        }
+        return slowptr;
+        
+    }
+};
