@@ -1,0 +1,16 @@
+class Solution {
+public:
+    bool isPerfectSquare(int num) {
+        long long a = num / 4;  
+        long long n = 1;        
+        while (n * n <= num) {  
+            if (n * n == num) {
+                return true;
+            } else {
+                n++;
+            }
+        }
+        return false;
+        
+    }
+};
