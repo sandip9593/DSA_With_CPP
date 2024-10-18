@@ -1,0 +1,26 @@
+class Solution {
+public:
+    int rangeSum(vector<int>& nums, int n, int left, int right) {
+        std::vector<int> res(n * (n + 1) / 2);
+        
+        int k = 0;
+        for (int i = 0; i < n; ++i) {
+            int sum = 0;
+            for (int j = i; j < n; ++j) {
+                sum += nums[j];
+                res[k++] = sum;
+            }
+        }
+
+        
+        std::sort(res.begin(), res.end());
+        int result = 0;
+        const int MOD = 1e9 + 7;
+        for (int i = left - 1; i < right; ++i) {
+            result = (result + res[i]) % MOD;
+        }
+        
+        return result;
+        
+    }
+};
